@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+    </head>
+<style>
+    body{
+        background-image:url('https://x.gd/cEE9p');
+        background-size: cover;
+        color: red;
+        }
+</style>
+<body>
+    <span>discord @1waffule0 作</span>
+    <br>
+    <span>頑張った</span>
+    <br>
+    <span>猫缶</span>
+    <button onclick="newoption('猫缶',nekokan)">
+        変更
+    </button>
+    <br>
+    <span>XP</span>
+    <button onclick="newoption('XP',xp)">
+        変更
+    </button>
+    <br>
+    <span>NP</span>
+    <button onclick="newoption('NP',np)">
+        変更
+    </button>
+    <br>
+    <span>敵城</span>
+    <button onclick="newoption('敵城',castle)">
+        変更
+    </button>
+    
+    <script>
+h5gg.searchNumber('32400','I32','0x100000000','0x110000000');
+
+     base = Number(h5gg.getResults('1')[0].address);
+
+     let nekokan = base - 0x130;
+         xp = base + 0x40;
+         np = base + 0x70048;
+         castle = base + 0x7e9b8;
+       function newoption(name,Addr){
+                let value = Number(prompt(name + "の数値を入力してください"));
+            
+            if(value !== null && !isNaN(value)) {
+h5gg.setValue(Addr,value,"I32");
+h5gg.setValue(Addr + 4,0,"I32");
+
+      alert("変更が完了しました");
+      }else{
+      alert("正しい数値を入力してください");
+      }
+    
+    }
+    </script>
+</body>
+</html>
